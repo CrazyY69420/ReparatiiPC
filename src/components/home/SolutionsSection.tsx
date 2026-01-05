@@ -4,29 +4,29 @@ const solutions = [
   {
     icon: Search,
     title: "Diagnostic rapid",
-    description: "Identificăm problema corect din prima, fără costuri ascunse.",
+    description: "Identificăm problema corect din prima, folosind echipamente profesionale de testare."
   },
   {
     icon: Wrench,
     title: "Reparație profesionistă",
-    description: "Piese de calitate, lucrări sigure și tehnicieni experimentați.",
+    description: "Piese de calitate și tehnicieni cu experiență pentru lucrări sigure și durabile."
   },
   {
     icon: CheckCircle,
     title: "Testare & garanție",
-    description: "Calculatorul pleacă perfect funcțional, cu garanție scrisă.",
-  },
+    description: "Calculatorul pleacă perfect funcțional, cu garanție scrisă pentru liniștea ta."
+  }
 ];
 
 export function SolutionsSection() {
   return (
-    <section className="section-padding bg-secondary/30">
+    <section className="section-padding bg-gradient-to-b from-white to-slate-50">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Soluții IT complete, fără bătăi de cap
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Procesul nostru simplu și transparent te ajută să scapi rapid de probleme
           </p>
         </div>
@@ -39,12 +39,12 @@ export function SolutionsSection() {
             >
               {/* Connector Line */}
               {index < solutions.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-border" />
+                <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gray-200" />
               )}
               
-              <div className="relative bg-card rounded-2xl p-8 text-center shadow-card hover:shadow-card-hover transition-all duration-300 border border-border hover:border-primary/20">
+              <div className="relative bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300">
                 {/* Step Number */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">
                   {index + 1}
                 </div>
 
@@ -54,10 +54,10 @@ export function SolutionsSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                <h3 className="font-display text-xl font-bold text-gray-900 mb-3">
                   {solution.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {solution.description}
                 </p>
               </div>
