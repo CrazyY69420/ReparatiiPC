@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Clock, Award, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImage from "@/assets/hero-repair.jpg";
+import { Shield, Clock, Award, Phone, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import heroImage from "@/assets/hero-technician.jpg";
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
       <div className="container-custom relative">
         <div className="py-16 md:py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -26,14 +19,20 @@ export function HeroSection() {
 
               {/* Title */}
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-up stagger-1 text-gray-900">
-                Reparații Calculatoare și Laptopuri –{" "}
-                <span className="text-primary">Rapid, Sigur și cu Garanție</span>
+                Reparații Calculatoare și Laptopuri în{" "}
+                <span className="text-primary">București</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed animate-fade-up stagger-2">
-                Diagnostic gratuit • Intervenții rapide • Suport IT la domiciliu și pentru firme
+              <p className="text-lg md:text-xl text-gray-600 mb-6 leading-relaxed animate-fade-up stagger-2">
+                Rapid, Sigur și cu Garanție • Diagnostic gratuit • Suport IT la domiciliu și pentru firme
               </p>
+
+              {/* Location Badge */}
+              <div className="inline-flex items-center gap-2 text-gray-600 mb-8 animate-fade-up stagger-2">
+                <MapPin className="w-5 h-5 text-primary" />
+                <span className="text-sm">Sector 1, București • Deservim toate sectoarele</span>
+              </div>
 
               {/* Features */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-up stagger-3">
@@ -71,12 +70,11 @@ export function HeroSection() {
             {/* Hero Image */}
             <div className="hidden lg:block relative animate-fade-up stagger-2">
               <div className="relative">
-                <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-3xl" />
+                <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl" />
                 <img
                   src={heroImage}
-                  alt="Reparații calculatoare profesionale"
+                  alt="Tehnician IT profesionist reparând calculator în București"
                   className="relative rounded-2xl shadow-xl w-full h-auto object-cover border border-gray-100"
-                  id="hero-image"
                 />
               </div>
             </div>
