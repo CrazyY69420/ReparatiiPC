@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
 const faqs = [
   {
@@ -23,8 +23,8 @@ const faqs = [
     answer: "Da, toate reparațiile noastre vin cu garanție scrisă. Durata garanției variază în funcție de tipul reparației și piesele folosite, de obicei între 3 și 12 luni.",
   },
   {
-    question: "Veniți la domiciliu?",
-    answer: "Da, oferim servicii la domiciliu pentru majoritatea problemelor. Costul deplasării depinde de zona și poate fi inclus în prețul reparației pentru comenzi mai mari.",
+    question: "Veniți la domiciliu în București?",
+    answer: "Da, oferim servicii la domiciliu în toate sectoarele Bucureștiului și în Ilfov. Costul deplasării depinde de zonă și poate fi inclus în prețul reparației pentru comenzi mai mari.",
   },
   {
     question: "Ce tipuri de laptopuri și calculatoare reparați?",
@@ -40,11 +40,11 @@ const faqs = [
   },
   {
     question: "Trebuie să aduc laptopul la voi sau veniți să-l luați?",
-    answer: "Ambele variante sunt posibile. Poți să aduci echipamentul la sediul nostru sau putem veni noi să-l ridicăm, în funcție de preferințele tale.",
+    answer: "Ambele variante sunt posibile. Poți să aduci echipamentul la sediul nostru din București, Sector 1, sau putem veni noi să-l ridicăm, în funcție de preferințele tale.",
   },
   {
-    question: "Oferiți servicii pentru firme?",
-    answer: "Da, avem pachete speciale pentru firme care includ contracte de mentenanță, suport tehnic prioritar, configurare rețele și multe altele. Contactează-ne pentru o ofertă personalizată.",
+    question: "Oferiți servicii pentru firme în București?",
+    answer: "Da, avem pachete speciale pentru firme din București și Ilfov care includ contracte de mentenanță, suport tehnic prioritar, configurare rețele și multe altele. Contactează-ne pentru o ofertă personalizată.",
   },
   {
     question: "Ce fac dacă calculatorul meu are viruși?",
@@ -56,31 +56,35 @@ export default function FAQ() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24">
+      <section className="bg-gradient-to-b from-slate-50 to-white py-16 md:py-24">
         <div className="container-custom text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Întrebări Frecvente
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-            Răspunsuri la cele mai comune întrebări despre serviciile noastre
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
+            Răspunsuri la cele mai comune întrebări despre serviciile noastre de reparații IT în București
           </p>
+          <div className="inline-flex items-center gap-2 text-gray-600">
+            <MapPin className="w-5 h-5 text-primary" />
+            <span>Service IT București și Ilfov</span>
+          </div>
         </div>
       </section>
 
       {/* FAQ List */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-gradient-to-b from-white to-slate-50">
         <div className="container-custom max-w-3xl">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-xl border border-border px-6 shadow-card"
+                className="bg-white rounded-xl border border-gray-100 px-6 shadow-sm"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-5">
+                <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-primary py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                <AccordionContent className="text-gray-600 pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -90,20 +94,22 @@ export default function FAQ() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-secondary/30">
-        <div className="container-custom text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nu ai găsit răspunsul?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contactează-ne și îți vom răspunde la orice întrebare.
-          </p>
-          <Button variant="accent" size="lg" asChild>
-            <Link to="/contact">
-              Contactează-ne
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center border border-gray-100">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Nu ai găsit răspunsul?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Contactează-ne și îți vom răspunde la orice întrebare despre serviciile noastre în București.
+            </p>
+            <Button variant="accent" size="lg" asChild>
+              <Link to="/contact">
+                Contactează-ne
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>

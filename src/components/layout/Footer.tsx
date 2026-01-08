@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Monitor, Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
+import { Monitor, Phone, Mail, MapPin, Clock, Facebook, Instagram, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const quickLinks = [
   { name: "Servicii", href: "/servicii" },
@@ -17,36 +18,40 @@ const services = [
   { name: "Servicii Firme", href: "/servicii#firme" },
 ];
 
+const serviceAreas = [
+  "Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6", "Ilfov"
+];
+
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-gray-900 text-white">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white">
                 <Monitor className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-lg">TechRepair</span>
-                <span className="text-xs text-background/60 -mt-1">Service IT</span>
+                <span className="text-xs text-gray-400 -mt-1">Service IT București</span>
               </div>
             </Link>
-            <p className="text-background/70 text-sm leading-relaxed mb-4">
-              Servicii profesionale de reparații calculatoare și laptopuri. Rapid, sigur și cu garanție.
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              Servicii profesionale de reparații calculatoare și laptopuri în București și Ilfov. Rapid, sigur și cu garanție.
             </p>
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-lg bg-gray-800 hover:bg-primary flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -62,7 +67,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-background/70 hover:text-primary transition-colors text-sm"
+                    className="text-gray-400 hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -79,7 +84,7 @@ export function Footer() {
                 <li key={service.href}>
                   <Link
                     to={service.href}
-                    className="text-background/70 hover:text-primary transition-colors text-sm"
+                    className="text-gray-400 hover:text-primary transition-colors text-sm"
                   >
                     {service.name}
                   </Link>
@@ -95,7 +100,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+40700000000"
-                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors text-sm"
+                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   0700 000 000
@@ -104,17 +109,24 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:contact@techrepair.ro"
-                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors text-sm"
+                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   contact@techrepair.ro
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-background/70 text-sm">
-                <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>Str. Exemplu nr. 123, București</span>
+              <li>
+                <a
+                  href="https://maps.google.com/?q=Bucuresti+Sector+1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-gray-400 hover:text-primary transition-colors text-sm"
+                >
+                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span>Str. Exemplu nr. 123, Sector 1<br />București, România</span>
+                </a>
               </li>
-              <li className="flex items-start gap-3 text-background/70 text-sm">
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>Luni - Vineri: 09:00 - 18:00<br />Sâmbătă: 10:00 - 14:00</span>
               </li>
@@ -122,22 +134,54 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Service Areas */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="text-center mb-6">
+            <h4 className="font-display font-semibold text-lg mb-4">Deservim Zonele</h4>
+            <div className="flex flex-wrap justify-center gap-2">
+              {serviceAreas.map((area) => (
+                <span
+                  key={area}
+                  className="px-3 py-1 bg-gray-800 rounded-full text-gray-400 text-xs"
+                >
+                  {area}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Google Maps Button */}
+        <div className="mt-8 text-center">
+          <Button variant="outline" size="sm" asChild className="border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white">
+            <a
+              href="https://maps.google.com/?q=Bucuresti+Sector+1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MapPin className="w-4 h-4 mr-2" />
+              Vezi locația pe Google Maps
+              <ExternalLink className="w-3 h-3 ml-2" />
+            </a>
+          </Button>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-background/10">
+        <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-background/60 text-sm">
-              © {new Date().getFullYear()} TechRepair. Toate drepturile rezervate.
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} TechRepair București. Toate drepturile rezervate.
             </p>
             <div className="flex gap-6">
               <Link
                 to="/politica-confidentialitate"
-                className="text-background/60 hover:text-primary transition-colors text-sm"
+                className="text-gray-500 hover:text-primary transition-colors text-sm"
               >
                 Politică GDPR
               </Link>
               <Link
                 to="/termeni-conditii"
-                className="text-background/60 hover:text-primary transition-colors text-sm"
+                className="text-gray-500 hover:text-primary transition-colors text-sm"
               >
                 Termeni și Condiții
               </Link>
